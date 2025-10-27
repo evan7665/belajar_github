@@ -31,6 +31,38 @@ h2 {
     margin-bottom: 40px;
 }
 
+.guestbook-slider {
+    overflow-x: auto;          /* Bisa di scroll ke samping */
+    white-space: nowrap;       /* Biar item berjejer horizontal */
+    padding-bottom: 10px;
+    scrollbar-width: thin;     /* Firefox */
+}
+
+/* Styling scrollbar (Chrome, Edge, Safari) */
+.guestbook-slider::-webkit-scrollbar {
+    height: 6px;
+}
+.guestbook-slider::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border-radius: 3px;
+}
+
+.guestbook-list {
+    display: inline-flex;
+    gap: 12px; /* Jarak antar item */
+}
+
+.ucapan-item {
+    min-width: 250px;          /* Lebar tiap kartu */
+    background: #ffffffaa;     /* Sedikit transparan */
+    padding: 12px;
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    display: inline-block;
+    white-space: normal;       /* Supaya teks tetap wrap */
+}
+
 p {
     margin-bottom: 1rem;
 }
