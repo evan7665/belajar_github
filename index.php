@@ -1,6 +1,6 @@
 <?php
 
-// --- DATA ACARA (Silakan ganti dengan data Anda) ---
+
 $data_undangan = [
     'nama_pria' => "Evan Santoso",
     'nama_wanita' => "Tania Mahani Handojo",
@@ -28,7 +28,7 @@ $data_undangan = [
     'quote' => "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. (QS. Ar-Rum: 21)",
 ];
 
-// --- FUNGSI BUKU TAMU (Guestbook) ---
+
 
 $file_ucapan = 'ucapan.json';
 $ucapan_list = [];
@@ -63,8 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_ucapan'])) {
     }
 }
 
-// 3. Mengambil nama tamu dari URL (Query Parameter ?to=...)
-// Menggunakan htmlspecialchars untuk keamanan (mencegah XSS)
+
 $nama_tamu_undangan = isset($_GET['to']) ? htmlspecialchars($_GET['to']) : 'Tamu Undangan';
 
 ?>
