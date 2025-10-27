@@ -175,19 +175,22 @@ $nama_tamu_undangan = isset($_GET['to']) ? htmlspecialchars($_GET['to']) : 'Tamu
             <button type="submit" name="submit_ucapan" class="cta-button">Kirim Ucapan</button>
         </form>
         
-        <div class="guestbook-list">
-            <?php if (empty($ucapan_list)): ?>
-                <p>Jadilah yang pertama memberikan ucapan!</p>
-            <?php else: ?>
-                <?php foreach ($ucapan_list as $ucapan): ?>
-                    <div class="ucapan-item">
-                        <strong><?php echo htmlspecialchars($ucapan['nama']); ?></strong>
-                        <small><?php echo htmlspecialchars($ucapan['waktu']); ?></small>
-                        <p><?php echo htmlspecialchars($ucapan['ucapan']); ?></p>
-                    </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
+        <div class="guestbook-slider">
+            <div class="guestbook-list">
+                <?php if (empty($ucapan_list)): ?>
+                    <p>Jadilah yang pertama memberikan ucapan!</p>
+                <?php else: ?>
+                    <?php foreach ($ucapan_list as $ucapan): ?>
+                        <div class="ucapan-item">
+                            <strong><?php echo htmlspecialchars($ucapan['nama']); ?></strong>
+                            <small><?php echo htmlspecialchars($ucapan['waktu']); ?></small>
+                            <p><?php echo htmlspecialchars($ucapan['ucapan']); ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
         </div>
+
     </section>
     
     <audio id="background-music" src="music/theme.mp3" loop></audio>
