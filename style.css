@@ -1,0 +1,277 @@
+:root {
+    --color-bg: #F5EBE0;         
+    --color-text: #584B42;       
+    --color-primary: #847957;   
+    --color-secondary: #E07A5F;  
+    --color-bg-dark: #D6CFCB;    
+    
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* --- Bagian Hero (Sampul) --- */
+.hero {
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: white;
+    margin: 10px 0;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    color: white;
+    margin-top: 30px;
+}
+
+.hero h4 {
+    font-size: 1rem;
+    color: white;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* --- Tombol CTA (Call to Action) --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+.cta-button:hover {
+    background-color: var(--color-secondary);
+}
+
+.cta-button-outline {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.dark-bg .cta-button-outline {
+    color: var(--color-text);
+    border-color: var(--color-text);
+}
+.cta-button-outline:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* --- Layout Section --- */
+.section {
+    padding: 80px 5%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.dark-bg {
+    background-color: var(--color-bg-dark);
+}
+
+.quote {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    padding: 0 10%;
+}
+
+/* --- Mempelai --- */
+.mempelai {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+.mempelai-card {
+    flex: 1;
+}
+.mempelai-ampersand {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--color-secondary);
+}
+
+/* --- Acara --- */
+.acara-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+.acara-card {
+    background-color: var(--color-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.acara-card hr {
+    border: none;
+    height: 1px;
+    background-color: var(--color-bg-dark);
+    margin: 20px 0;
+}
+
+/* --- Galeri --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* --- Amplop --- */
+.amplop-card {
+    display: inline-block;
+    background-color: var(--color-bg);
+    padding: 20px 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    min-width: 300px;
+}
+
+/* --- Guestbook (Buku Tamu) --- */
+.guestbook-form {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    text-align: left;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--color-bg-dark);
+    font-family: var(--font-body);
+}
+.guestbook-form button {
+    width: 100%;
+}
+
+.guestbook-list {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+.ucapan-item {
+    background-color: white;
+    border: 1px solid var(--color-bg-dark);
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.ucapan-item strong {
+    display: block;
+    color: var(--color-secondary);
+}
+.ucapan-item small {
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 10px;
+    display: block;
+}
+.ucapan-item p {
+    margin: 0;
+}
+
+/* --- Tombol Musik --- */
+#play-pause-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+/* --- Media Queries untuk Mobile --- */
+@media (min-width: 768px) {
+    .acara-container {
+        grid-template-columns: 1fr 1fr; 
+    }
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .mempelai {
+        flex-direction: column;
+    }
+}
