@@ -38,7 +38,7 @@ if (file_exists($file_ucapan)) {
     $ucapan_json = file_get_contents($file_ucapan);
     $ucapan_list = json_decode($ucapan_json, true);
 }
-
+// testing coba update
 // 2. Memproses jika ada ucapan baru yang dikirim (via POST)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_ucapan'])) {
     $nama_tamu = htmlspecialchars($_POST['nama_tamu']);
