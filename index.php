@@ -2,27 +2,27 @@
 
 // --- DATA ACARA (Silakan ganti dengan data Anda) ---
 $data_undangan = [
-    'nama_pria' => "Adam Putra",
-    'nama_wanita' => "Bunga Citra",
+    'nama_pria' => "Evan Santoso",
+    'nama_wanita' => "Tania Mahani Handojo",
     'ortu_pria' => "Bpk. Hendra Wijaya & Ibu. Sari Dewi",
     'ortu_wanita' => "Bpk. Rahmat Hidayat & Ibu. Fatimah",
     
     'akad' => [
-        'nama' => "Akad Nikah",
+        'nama' => "Holy Matrimony",
         'tanggal' => "Sabtu, 14 November 2026",
         'waktu' => "09:00 - 10:00 WIB",
-        'tempat' => "Masjid Istiqlal, Jakarta",
-        'alamat' => "Jl. Taman Wijaya Kusuma, Ps. Baru, Sawah Besar",
-        'maps_url' => "https://maps.app.goo.gl/abcdef123456"
+        'tempat' => "Gereja Gepembri Pekalongan",
+        'alamat' => "Jl. Toba No.40, Keputran, Kec. Pekalongan Tim., Kota Pekalongan, Jawa Tengah 51128",
+        'maps_url' => "https://maps.app.goo.gl/iyf73si7bPtMnKDX9"
     ],
     
     'resepsi' => [
         'nama' => "Resepsi Pernikahan",
         'tanggal' => "Sabtu, 14 November 2026",
         'waktu' => "11:00 - 13:00 WIB",
-        'tempat' => "Gedung A, Hotel Borobudur",
-        'alamat' => "Jl. Lapangan Banteng Selatan, Ps. Baru",
-        'maps_url' => "https://maps.app.goo.gl/ghijk789012"
+        'tempat' => "Cinlong",
+        'alamat' => "Komplek Dupan Square, Jl. Dr. Setiabudi, Baros, Kec. Pekalongan Tim., Kota Pekalongan, Jawa Tengah 51123",
+        'maps_url' => "https://maps.app.goo.gl/G1fnMc2aFUee1zSo9"
     ],
     
     'quote' => "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. (QS. Ar-Rum: 21)",
