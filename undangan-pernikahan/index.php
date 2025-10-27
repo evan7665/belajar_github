@@ -4,28 +4,28 @@
 $data_undangan = [
     'nama_pria' => "Evan Santoso",
     'nama_wanita' => "Tania Mahani Handojo",
-    'ortu_pria' => "Bpk. Hendra Wijaya & Ibu. Sari Dewi",
-    'ortu_wanita' => "Bpk. Rahmat Hidayat & Ibu. Fatimah",
+    'ortu_pria' => "Mr. Budi Santoso & Mrs. Mila Ardiana",
+    'ortu_wanita' => "Mr. Andreas Handojo & Mrs. Eva Mayasari",
     
     'akad' => [
         'nama' => "Holy Matrimony",
-        'tanggal' => "Sabtu, 14 November 2026",
+        'tanggal' => "Saturday, 14th November 2026",
         'waktu' => "09:00 - 10:00 WIB",
-        'tempat' => "Gereja Gepembri Pekalongan",
+        'tempat' => "Gepembri Pekalongan Church",
         'alamat' => "Jl. Toba No.40, Keputran, Kec. Pekalongan Tim., Kota Pekalongan, Jawa Tengah 51128",
         'maps_url' => "https://maps.app.goo.gl/iyf73si7bPtMnKDX9"
     ],
     
     'resepsi' => [
-        'nama' => "Resepsi Pernikahan",
-        'tanggal' => "Sabtu, 14 November 2026",
+        'nama' => "Wedding Reception",
+        'tanggal' => "Saturday, 14th November 2026",
         'waktu' => "11:00 - 13:00 WIB",
         'tempat' => "Cinlong",
         'alamat' => "Komplek Dupan Square, Jl. Dr. Setiabudi, Baros, Kec. Pekalongan Tim., Kota Pekalongan, Jawa Tengah 51123",
         'maps_url' => "https://maps.app.goo.gl/G1fnMc2aFUee1zSo9"
     ],
     
-    'quote' => "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang. (QS. Ar-Rum: 21)",
+    'quote' => "So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate. (Matthew 19:6)",
 ];
 
 
@@ -33,13 +33,10 @@ $data_undangan = [
 $file_ucapan = 'ucapan.json';
 $ucapan_list = [];
 
-// 1. Membaca data ucapan yang sudah ada
 if (file_exists($file_ucapan)) {
     $ucapan_json = file_get_contents($file_ucapan);
     $ucapan_list = json_decode($ucapan_json, true);
 }
-// testing coba update
-// 2. Memproses jika ada ucapan baru yang dikirim (via POST)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_ucapan'])) {
     $nama_tamu = htmlspecialchars($_POST['nama_tamu']);
     $isi_ucapan = htmlspecialchars($_POST['isi_ucapan']);
@@ -51,13 +48,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_ucapan'])) {
             'waktu' => date('d M Y, H:i')
         ];
         
-        // Tambahkan ucapan baru ke awal array
         array_unshift($ucapan_list, $ucapan_baru);
         
-        // Simpan kembali ke file JSON
         file_put_contents($file_ucapan, json_encode($ucapan_list, JSON_PRETTY_PRINT));
         
-        // Refresh halaman untuk menghindari re-submit form
         header("Location: " . $_SERVER['PHP_SELF'] . "?to=" . urlencode($_GET['to'] ?? 'Tamu Undangan') . "#guestbook");
         exit;
     }
@@ -94,14 +88,14 @@ $nama_tamu_undangan = isset($_GET['to']) ? htmlspecialchars($_GET['to']) : 'Tamu
     </header>
 
     <section id="intro" class="section">
-        <h2>Om Swastiastu,</h2>
+        <h2>Shalom,</h2>
         <p class="quote">"<?php echo $data_undangan['quote']; ?>"</p>
-        <p>Maha suci Tuhan, yang telah menciptakan makhluk-Nya berpasang-pasangan. Kami bermaksud menyelenggarakan pernikahan putra-putri kami:</p>
+        <p>By the grace of God, we joyfully invite you to witness and celebrate the union of our lives in the holy matrimony of:</p>
         
         <div class="mempelai">
             <div class="mempelai-card">
                 <h3><?php echo $data_undangan['nama_pria']; ?></h3>
-                <p>Putra dari:</p>
+                <p>Son of</p>
                 <p><?php echo $data_undangan['ortu_pria']; ?></p>
             </div>
             
@@ -109,7 +103,7 @@ $nama_tamu_undangan = isset($_GET['to']) ? htmlspecialchars($_GET['to']) : 'Tamu
             
             <div class="mempelai-card">
                 <h3><?php echo $data_undangan['nama_wanita']; ?></h3>
-                <p>Putri dari:</p>
+                <p>Daughter of</p>
                 <p><?php echo $data_undangan['ortu_wanita']; ?></p>
             </div>
         </div>
@@ -141,17 +135,17 @@ $nama_tamu_undangan = isset($_GET['to']) ? htmlspecialchars($_GET['to']) : 'Tamu
     </section>
 
     <section id="gallery" class="section">
-        <h2>Galeri Kenangan</h2>
+        <h2>Moments Full of Love</h2>
         <div class="gallery-grid">
             <img src="images/gallery1.jpg" alt="Gallery 1">
-            <img src="images/hero.jpg" alt="Gallery 2">
+            <img src="images/gallery3.jpg" alt="Gallery 2">
             <img src="images/gallery2.jpg" alt="Gallery 3">
         </div>
     </section>
     
     <section id="amplop" class="section dark-bg">
-        <h2>Amplop Digital</h2>
-        <p>Bagi Anda yang ingin memberikan tanda kasih, dapat melalui:</p>
+        <h2>Token of Love</h2>
+        <p>Your prayers and presence mean the world to us. If you wish to bless us with a gift, we would receive it with heartfelt gratitude</p>
         <div class="amplop-card">
             <strong>Bank BCA</strong>
             <p>1234567890</p>
@@ -161,20 +155,20 @@ $nama_tamu_undangan = isset($_GET['to']) ? htmlspecialchars($_GET['to']) : 'Tamu
     </section>
 
     <section id="guestbook" class="section">
-        <h2>Buku Tamu & Ucapan</h2>
+        <h2>Guestbook & Prayers</h2>
         
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>?to=<?php echo urlencode($nama_tamu_undangan); ?>#guestbook" method="POST" class="guestbook-form">
             <div class="form-group">
-                <label for="nama_tamu">Nama Anda:</label>
+                <label for="nama_tamu">Your name:</label>
                 <input type="text" id="nama_tamu" name="nama_tamu" required>
             </div>
             <div class="form-group">
-                <label for="isi_ucapan">Ucapan Anda:</label>
+                <label for="isi_ucapan">Your prayers:</label>
                 <textarea id="isi_ucapan" name="isi_ucapan" rows="4" required></textarea>
             </div>
-            <button type="submit" name="submit_ucapan" class="cta-button">Kirim Ucapan</button>
+            <button type="submit" name="submit_ucapan" class="cta-button">Send</button>
         </form>
-        
+
         <div class="guestbook-slider">
             <div class="guestbook-list">
                 <?php if (empty($ucapan_list)): ?>
@@ -190,7 +184,6 @@ $nama_tamu_undangan = isset($_GET['to']) ? htmlspecialchars($_GET['to']) : 'Tamu
                 <?php endif; ?>
             </div>
         </div>
-
     </section>
     
     <audio id="background-music" src="music/theme.mp3" loop></audio>
