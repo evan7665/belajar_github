@@ -2,10 +2,10 @@
 
 
 $data_undangan = [
-    'nama_pria' => "Evan Santoso",
-    'nama_wanita' => "Tania Mahani Handojo",
-    'ortu_pria' => "Mr. Budi Santoso & Mrs. Mila Ardiana",
-    'ortu_wanita' => "Mr. Andreas Handojo & Mrs. Eva Mayasari",
+    'nama_pria' => "Naruto",
+    'nama_wanita' => "Hinata",
+    'ortu_pria' => "Mr. Joko & Mrs. Niken",
+    'ortu_wanita' => "Mr. Budi & Mrs. Dian",
     
     'akad' => [
         'nama' => "Holy Matrimony",
