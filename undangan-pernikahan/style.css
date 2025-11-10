@@ -144,6 +144,42 @@ p {
     text-align: center;
 }
 
+.footer-watermark {
+    background-color: #f9f9f9;
+    color: #444;
+    text-align: center;
+    padding: 30px 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+    border-top: 1px solid #ddd;
+    opacity: 0.85;
+}
+
+.footer-watermark h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1.1em;
+    margin: 8px 0;
+    color: #222;
+}
+
+.footer-watermark a {
+    color: #b08b57;
+    text-decoration: none;
+}
+
+.footer-watermark a:hover {
+    text-decoration: underline;
+}
+
+.footer-watermark small {
+    display: block;
+    margin-top: 8px;
+    color: #777;
+    font-size: 0.8em;
+}
+
+
 .dark-bg {
     background-color: var(--color-bg-dark);
 }
