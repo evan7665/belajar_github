@@ -6,7 +6,7 @@ $data_undangan = [
     'nama_wanita' => "Hinata",
     'ortu_pria' => "Mr. Joko & Mrs. Niken",
     'ortu_wanita' => "Mr. Budi & Mrs. Dian",
-    
+
     'akad' => [
         'nama' => "Holy Matrimony",
         'tanggal' => "Saturday, 14th November 2026",
@@ -15,7 +15,7 @@ $data_undangan = [
         'alamat' => "Jl. Toba No.40, Keputran, Kec. Pekalongan Tim., Kota Pekalongan, Jawa Tengah 51128",
         'maps_url' => "https://maps.app.goo.gl/iyf73si7bPtMnKDX9"
     ],
-    
+
     'resepsi' => [
         'nama' => "Wedding Reception",
         'tanggal' => "Saturday, 14th November 2026",
@@ -24,7 +24,7 @@ $data_undangan = [
         'alamat' => "Komplek Dupan Square, Jl. Dr. Setiabudi, Baros, Kec. Pekalongan Tim., Kota Pekalongan, Jawa Tengah 51123",
         'maps_url' => "https://maps.app.goo.gl/G1fnMc2aFUee1zSo9"
     ],
-    
+
     'quote' => "So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate. (Matthew 19:6)",
 ];
 
@@ -40,18 +40,18 @@ if (file_exists($file_ucapan)) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_ucapan'])) {
     $nama_tamu = htmlspecialchars($_POST['nama_tamu']);
     $isi_ucapan = htmlspecialchars($_POST['isi_ucapan']);
-    
+
     if (!empty($nama_tamu) && !empty($isi_ucapan)) {
         $ucapan_baru = [
             'nama' => $nama_tamu,
             'ucapan' => $isi_ucapan,
             'waktu' => date('d M Y, H:i')
         ];
-        
+
         array_unshift($ucapan_list, $ucapan_baru);
-        
+
         file_put_contents($file_ucapan, json_encode($ucapan_list, JSON_PRETTY_PRINT));
-        
+
         header("Location: " . $_SERVER['PHP_SELF'] . "?to=" . urlencode($_GET['to'] ?? 'Tamu Undangan') . "#guestbook");
         exit;
     }
@@ -63,6 +63,7 @@ $nama_tamu_undangan = isset($_GET['to']) ? htmlspecialchars($_GET['to']) : 'Tamu
 ?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,6 +73,7 @@ $nama_tamu_undangan = isset($_GET['to']) ? htmlspecialchars($_GET['to']) : 'Tamu
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <header class="hero">
@@ -79,10 +81,10 @@ $nama_tamu_undangan = isset($_GET['to']) ? htmlspecialchars($_GET['to']) : 'Tamu
             <h4>Kepada Yth.</h4>
             <h1><?php echo $nama_tamu_undangan; ?></h1>
             <p>Kami mengundang Anda untuk hadir di pernikahan kami.</p>
-            
+
             <h2><?php echo $data_undangan['nama_pria']; ?> & <?php echo $data_undangan['nama_wanita']; ?></h2>
             <p class="tanggal-hero"><?php echo $data_undangan['resepsi']['tanggal']; ?></p>
-            
+
             <a href="#intro" class="cta-button">Buka Undangan</a>
         </div>
     </header>
@@ -91,16 +93,16 @@ $nama_tamu_undangan = isset($_GET['to']) ? htmlspecialchars($_GET['to']) : 'Tamu
         <h2>Shalom,</h2>
         <p class="quote">"<?php echo $data_undangan['quote']; ?>"</p>
         <p>By the grace of God, we joyfully invite you to witness and celebrate the union of our lives in the holy matrimony of:</p>
-        
+
         <div class="mempelai">
             <div class="mempelai-card">
                 <h3><?php echo $data_undangan['nama_pria']; ?></h3>
                 <p>Son of</p>
                 <p><?php echo $data_undangan['ortu_pria']; ?></p>
             </div>
-            
+
             <span class="mempelai-ampersand">&</span>
-            
+
             <div class="mempelai-card">
                 <h3><?php echo $data_undangan['nama_wanita']; ?></h3>
                 <p>Daughter of</p>
@@ -121,7 +123,7 @@ $nama_tamu_undangan = isset($_GET['to']) ? htmlspecialchars($_GET['to']) : 'Tamu
                 <p><?php echo $data_undangan['akad']['alamat']; ?></p>
                 <a href="<?php echo $data_undangan['akad']['maps_url']; ?>" target="_blank" class="cta-button-outline">Lihat Peta</a>
             </div>
-            
+
             <div class="acara-card">
                 <h3><?php echo $data_undangan['resepsi']['nama']; ?></h3>
                 <p><?php echo $data_undangan['resepsi']['tanggal']; ?></p>
@@ -142,7 +144,7 @@ $nama_tamu_undangan = isset($_GET['to']) ? htmlspecialchars($_GET['to']) : 'Tamu
             <img src="images/gallery2.jpg" alt="Gallery 3">
         </div>
     </section>
-    
+
     <section id="amplop" class="section dark-bg">
         <h2>Token of Love</h2>
         <p>Your prayers and presence mean the world to us. If you wish to bless us with a gift, we would receive it with heartfelt gratitude</p>
@@ -156,7 +158,7 @@ $nama_tamu_undangan = isset($_GET['to']) ? htmlspecialchars($_GET['to']) : 'Tamu
 
     <section id="guestbook" class="section">
         <h2>Guestbook & Prayers</h2>
-        
+
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>?to=<?php echo urlencode($nama_tamu_undangan); ?>#guestbook" method="POST" class="guestbook-form">
             <div class="form-group">
                 <label for="nama_tamu">Your name:</label>
@@ -185,10 +187,18 @@ $nama_tamu_undangan = isset($_GET['to']) ? htmlspecialchars($_GET['to']) : 'Tamu
             </div>
         </div>
     </section>
-    
+
+    <footer class="footer-watermark">
+        <p>Website designed & developed by</p>
+        <h4>Evan Santoso • Tania Mahani Handojo • Audrey Calista</h4>
+        <p class="footer-contact">Contact us: <a href="mailto:evansantoso138@gmail.com">evansantoso138@gmail.com</a></p>
+        <small>© <?php echo date('Y'); ?> All Rights Reserved</small>
+    </footer>
+
     <audio id="background-music" src="music/theme.mp3" loop></audio>
     <button id="play-pause-button">Play/Pause</button>
 
     <script src="script.js"></script>
 </body>
+
 </html>
